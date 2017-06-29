@@ -32,6 +32,7 @@ void MainWindow::loadFile(QString path)
 void MainWindow::process()
 {
     if(sourcePic.data){
+        double koef = ui->mkmBox->value()/(double)ui->pixelBox->value(); //
         grayPic;
         cvtColor(sourcePic,grayPic,CV_BGR2GRAY);
         threshold(grayPic,grayPic,ui->thresholdSlider->value(),255,CV_THRESH_BINARY);
@@ -55,6 +56,9 @@ void MainWindow::process()
 void MainWindow::calculateGist()
 {
     if(!blistRects.isEmpty()){
+
+        double koef = ui->mkmBox->value()/(double)ui->pixelBox->value();
+
         int maxSize = ui->maxSizeBox->value();
         int countLevels = maxSize/ui->windowBox->value();
 
@@ -130,6 +134,7 @@ void MainWindow::showPics()
 {
     showPic = sourcePic.clone();
     if(!blistRects.isEmpty()){
+        double koef = ui->mkmBox->value()/(double)ui->pixelBox->value();
         for(int i = 0; i < blistRects.count(); i++){
             int b = rand()%255;
             int g = rand()%255;

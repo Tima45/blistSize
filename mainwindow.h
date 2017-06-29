@@ -59,7 +59,7 @@ private:
     QVector<double> heightS;
     void showPics();
 
-    double koef = 1000.0/446.0;
+
 };
 
 #endif // MAINWINDOW_H

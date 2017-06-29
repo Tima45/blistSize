@@ -15,16 +15,16 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="3">
-     <widget class="QSpinBox" name="maxSizeBox">
-      <property name="maximum">
-       <number>999999</number>
-      </property>
-      <property name="singleStep">
-       <number>1</number>
-      </property>
-      <property name="value">
-       <number>1000</number>
+    <item row="7" column="0" colspan="6">
+     <widget class="QCustomPlot" name="yPlot" native="true"/>
+    </item>
+    <item row="6" column="0" colspan="6">
+     <widget class="QCustomPlot" name="xPlot" native="true"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="selectFileButton">
+      <property name="text">
+       <string>Выбрать фотографию</string>
       </property>
      </widget>
     </item>
@@ -48,6 +48,19 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="3">
+     <widget class="QSpinBox" name="maxSizeBox">
+      <property name="maximum">
+       <number>999999</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1000</number>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="0" colspan="2">
      <widget class="QSlider" name="thresholdSlider">
       <property name="maximum">
@@ -55,56 +68,6 @@
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>threshold</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="selectFileButton">
-      <property name="text">
-       <string>Выбрать фотографию</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Максимум(мкм)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0" colspan="5">
-     <widget class="QCustomPlot" name="yPlot" native="true"/>
-    </item>
-    <item row="5" column="0" colspan="5">
-     <widget class="QCustomPlot" name="xPlot" native="true">
-      <zorder>yPlot</zorder>
-     </widget>
-    </item>
-    <item row="0" column="1" colspan="4">
-     <widget class="QLabel" name="pathLabel">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="4">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Размер окна(мкм)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Минимальный размер блистера(мкм)</string>
       </property>
      </widget>
     </item>
@@ -118,10 +81,72 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="4">
+    <item row="0" column="1" colspan="5">
+     <widget class="QLabel" name="pathLabel">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>threshold</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QSpinBox" name="mkmBox">
+      <property name="maximum">
+       <number>99999999</number>
+      </property>
+      <property name="value">
+       <number>1000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="5">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Коэффициент размеров mkm/pix</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QSpinBox" name="pixelBox">
+      <property name="maximum">
+       <number>99999999</number>
+      </property>
+      <property name="value">
+       <number>447</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4" colspan="2">
      <widget class="QLabel" name="label_5">
       <property name="text">
        <string>Размер текста на изображении</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4" colspan="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Минимальный размер блистера(мкм)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4" colspan="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Размер окна(мкм)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4" colspan="2">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Максимум(мкм)</string>
       </property>
      </widget>
     </item>
