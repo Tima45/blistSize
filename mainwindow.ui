@@ -15,16 +15,17 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="7" column="0" colspan="6">
-     <widget class="QCustomPlot" name="yPlot" native="true"/>
-    </item>
-    <item row="6" column="0" colspan="6">
-     <widget class="QCustomPlot" name="xPlot" native="true"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="selectFileButton">
+    <item row="1" column="4" colspan="2">
+     <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Выбрать фотографию</string>
+       <string>Максимум(мкм)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4" colspan="2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Размер текста на изображении</string>
       </property>
      </widget>
     </item>
@@ -48,6 +49,13 @@
       </property>
      </widget>
     </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="selectFileButton">
+      <property name="text">
+       <string>Выбрать фотографию</string>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="3">
      <widget class="QSpinBox" name="maxSizeBox">
       <property name="maximum">
@@ -58,6 +66,13 @@
       </property>
       <property name="value">
        <number>1000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>threshold</string>
       </property>
      </widget>
     </item>
@@ -88,10 +103,10 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="label">
+    <item row="3" column="4" colspan="2">
+     <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>threshold</string>
+       <string>Минимальный размер блистера(мкм)</string>
       </property>
      </widget>
     </item>
@@ -122,20 +137,6 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="4" colspan="2">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Размер текста на изображении</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4" colspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Минимальный размер блистера(мкм)</string>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="4" colspan="2">
      <widget class="QLabel" name="label_3">
       <property name="text">
@@ -143,10 +144,16 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="4" colspan="2">
-     <widget class="QLabel" name="label_2">
+    <item row="6" column="0" colspan="6">
+     <widget class="QCustomPlot" name="xPlot" native="true"/>
+    </item>
+    <item row="7" column="0" colspan="6">
+     <widget class="QCustomPlot" name="yPlot" native="true"/>
+    </item>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>Максимум(мкм)</string>
+       <string>Save</string>
       </property>
      </widget>
     </item>

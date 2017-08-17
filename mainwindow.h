@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStringList>
 #include <QDebug>
 #include <QFileDialog>
 #include <cv.hpp>
@@ -36,6 +37,8 @@ private slots:
 
     void on_textSizeBox_valueChanged(double arg1);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -56,7 +59,10 @@ private:
     void drawSizes();
     QVector<Rect> blistRects;
     QVector<double> widthS;
+    QVector<double> wSize;
     QVector<double> heightS;
+    QVector<double> hSize;
+    QString imagePath;
     void showPics();
 
 
