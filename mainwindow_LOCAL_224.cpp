@@ -28,7 +28,6 @@ void MainWindow::on_selectFileButton_clicked()
 void MainWindow::loadFile(QString path)
 {
     sourcePic = imread(path.toStdString());
-    imagePath = path;
 }
 
 void MainWindow::process()
@@ -67,14 +66,9 @@ void MainWindow::calculateGist()
         widthS.clear();
         heightS.clear();
 
-        wSize.clear();
-        hSize.clear();
-
         for(int i = 0; i < countLevels; i++){
             widthS.append(0);
             heightS.append(0);
-            wSize.append(i*ui->windowBox->value());
-            hSize.append(i*ui->windowBox->value());
         }
 
         for(int i = 0; i < blistRects.count(); i++){
@@ -196,7 +190,6 @@ void MainWindow::on_textSizeBox_valueChanged(double arg1)
     showPics();
 }
 
-
 void MainWindow::callBackFunction(int event, int x, int y, int flags, void *userdata)
 {
 
@@ -213,63 +206,4 @@ void MainWindow::callBackFunction(int event, int x, int y, int flags, void *user
             singleToneWindow->boxStartY = y;
         }
     }
-
-void MainWindow::on_pushButton_clicked()
-{
-
-    QStringList list = imagePath.split("/");
-    QString fileName = list.at(list.count()-1);
-    QStringList list2 = fileName.split(".");
-    fileName = list2.at(0);
-
-    list.removeLast();
-    list.insert(list.count()-1,"size");
-
-    QString folderName = list.join("/");
-    folderName+="/";
-
-    qDebug() << folderName;
-
-
-    QDir().mkpath(folderName);
-
-    ui->xPlot->grab().save(folderName+fileName+"_width.png","png");
-    ui->yPlot->grab().save(folderName+fileName+"_height.png","png");
-
-
-
-    Mat showPic = sourcePic.clone();
-
-    Mat sizesPic = showPic.clone();
-    if(!blistRects.isEmpty()){
-        double koef = ui->mkmBox->value()/(double)ui->pixelBox->value();
-        for(int i = 0; i < blistRects.count(); i++){
-            int b = rand()%255;
-            int g = rand()%255;
-            int r = rand()%255;
-            Scalar rColor(b,g,r);
-
-            rectangle(showPic,blistRects.at(i),rColor,2);
-            rectangle(sizesPic,blistRects.at(i),rColor,2);
-
-            double rate = 1;
-            if(rate > 0){
-                putText(sizesPic,to_string((int)round(blistRects.at(i).width*sqrt(2)*koef)),Point(blistRects.at(i).x+10,blistRects.at(i).y+50),FONT_HERSHEY_SIMPLEX,rate,rColor);
-                putText(sizesPic,to_string((int)round(blistRects.at(i).height*koef)),Point(blistRects.at(i).x+10,blistRects.at(i).y+70),FONT_HERSHEY_SIMPLEX,rate,rColor);
-            }
-        }
-    }
-
-    String s = QString(folderName+fileName+"_rects").toStdString();
-    imwrite(s+".png",showPic);
-    imwrite(s+"_sizes.png",sizesPic);
-
-    QFile f(folderName+"gist.xls");
-    f.open(QIODevice::WriteOnly | QIODevice::Text);
-    QTextStream out(&f);
-    out << "width(mkm)\tcount\theight(mkm)\tcount\n";
-    for(int i = 0; i < widthS.count(); i++){
-        out << QString::number(wSize.at(i))+"\t"+QString::number(widthS.at(i))+"\t"+QString::number(hSize.at(i))+"\t"+QString::number(heightS.at(i))+"\n";
-    }
-    f.close();
 }

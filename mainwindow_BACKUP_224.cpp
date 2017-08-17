@@ -196,7 +196,7 @@ void MainWindow::on_textSizeBox_valueChanged(double arg1)
     showPics();
 }
 
-
+<<<<<<< HEAD
 void MainWindow::callBackFunction(int event, int x, int y, int flags, void *userdata)
 {
 
@@ -213,7 +213,7 @@ void MainWindow::callBackFunction(int event, int x, int y, int flags, void *user
             singleToneWindow->boxStartY = y;
         }
     }
-
+=======
 void MainWindow::on_pushButton_clicked()
 {
 
@@ -272,4 +272,5 @@ void MainWindow::on_pushButton_clicked()
         out << QString::number(wSize.at(i))+"\t"+QString::number(widthS.at(i))+"\t"+QString::number(hSize.at(i))+"\t"+QString::number(heightS.at(i))+"\n";
     }
     f.close();
+>>>>>>> 2b74ccba30c3960aca9ed15732eff8f8b142d857
 }

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStringList>
 #include <QDebug>
 #include <QFileDialog>
 #include <cv.hpp>
@@ -24,30 +25,8 @@ public:
     ~MainWindow();
     static void callBackFunction(int event, int x, int y, int flags, void* userdata);
     static MainWindow *singleToneWindow;
-    Ui::MainWindow *ui;
 
-    Mat sourcePic;
-    Mat showPic;
-    Mat grayPic;
-    void loadFile(QString path);
-    void process();
-    void calculateGist();
-    void initPlot();
 
-    QCPGraph *xPlotSizes;
-    QCPGraph *yPlotSizes;
-
-    QCPBars* xBars;
-    QCPBars* yBars;
-
-    void drawSizes();
-    QVector<Rect> blistRects;
-    QVector<double> widthS;
-    QVector<double> heightS;
-    void showPics();
-    int clickCounter = 0;
-    int boxStartX = 0;
-    int boxStartY = 0;
 private slots:
     void on_selectFileButton_clicked();
 
@@ -61,11 +40,9 @@ private slots:
 
     void on_textSizeBox_valueChanged(double arg1);
 
-
+    void on_pushButton_clicked();
 
 private:
-
-
 
 };
 
