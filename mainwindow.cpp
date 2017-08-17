@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+MainWindow *MainWindow::singleToneWindow;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     initPlot();
+    singleToneWindow = this;
 }
 
 MainWindow::~MainWindow()
@@ -151,6 +152,7 @@ void MainWindow::showPics()
         }
     }
     imshow("Source",showPic);
+    setMouseCallback("Source",callBackFunction,NULL);
 }
 
 void MainWindow::on_thresholdSlider_valueChanged(int value)
@@ -186,4 +188,22 @@ void MainWindow::on_minimumSizeBox_valueChanged(double arg1)
 void MainWindow::on_textSizeBox_valueChanged(double arg1)
 {
     showPics();
+}
+
+void MainWindow::callBackFunction(int event, int x, int y, int flags, void *userdata)
+{
+
+    if(event == EVENT_LBUTTONDOWN){
+        qDebug() << x << y;
+        singleToneWindow->clickCounter++;
+        if(singleToneWindow->clickCounter%2 == 0){
+            singleToneWindow->blistRects.append(Rect(singleToneWindow->boxStartX,singleToneWindow->boxStartY,fabs(x-singleToneWindow->boxStartX),fabs(y-singleToneWindow->boxStartY)));
+            singleToneWindow->calculateGist();
+            singleToneWindow->drawSizes();
+            singleToneWindow->showPics();
+        }else{
+            singleToneWindow->boxStartX = x;
+            singleToneWindow->boxStartY = y;
+        }
+    }
 }
