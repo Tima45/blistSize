@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1163</width>
+    <width>635</width>
     <height>757</height>
    </rect>
   </property>
@@ -15,19 +15,6 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="6" column="0" colspan="6">
-     <widget class="QCustomPlot" name="xPlot" native="true"/>
-    </item>
-    <item row="7" column="0" colspan="6">
-     <widget class="QCustomPlot" name="yPlot" native="true"/>
-    </item>
-    <item row="4" column="4" colspan="2">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Размер текста на изображении</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="4" colspan="2">
      <widget class="QLabel" name="label_2">
       <property name="text">
@@ -99,6 +86,16 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="3">
+     <widget class="QDoubleSpinBox" name="textSizeBox">
+      <property name="maximum">
+       <double>5.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="1" colspan="5">
      <widget class="QLabel" name="pathLabel">
       <property name="text">
@@ -110,16 +107,6 @@
      <widget class="QLabel" name="label_4">
       <property name="text">
        <string>Минимальный размер блистера(мкм)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3">
-     <widget class="QDoubleSpinBox" name="textSizeBox">
-      <property name="maximum">
-       <double>5.000000000000000</double>
-      </property>
-      <property name="singleStep">
-       <double>0.100000000000000</double>
       </property>
      </widget>
     </item>
@@ -140,13 +127,6 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="4" colspan="2">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Размер окна(мкм)</string>
-      </property>
-     </widget>
-    </item>
     <item row="5" column="4">
      <widget class="QSpinBox" name="pixelBox">
       <property name="maximum">
@@ -157,10 +137,6 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="4" colspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Минимальный размер блистера(мкм)</string>
     <item row="2" column="4" colspan="2">
      <widget class="QLabel" name="label_3">
       <property name="text">

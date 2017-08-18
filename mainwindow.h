@@ -25,7 +25,33 @@ public:
     ~MainWindow();
     static void callBackFunction(int event, int x, int y, int flags, void* userdata);
     static MainWindow *singleToneWindow;
+    Ui::MainWindow *ui;
 
+       Mat sourcePic;
+       Mat showPic;
+       Mat grayPic;
+       void loadFile(QString path);
+       void process();
+       void calculateGist();
+       void initPlot();
+
+       QCPGraph *xPlotSizes;
+       QCPGraph *yPlotSizes;
+
+       QCPBars* xBars;
+       QCPBars* yBars;
+
+       void drawSizes();
+       QVector<Rect> blistRects;
+       QVector<double> widthS;
+       QVector<double> wSize;
+       QVector<double> heightS;
+       QVector<double> hSize;
+       QString imagePath;
+       void showPics();
+        int clickCounter = 0;
+        int boxStartX = 0;
+        int boxStartY = 0;
 
 private slots:
     void on_selectFileButton_clicked();

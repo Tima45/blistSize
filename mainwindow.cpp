@@ -213,6 +213,7 @@ void MainWindow::callBackFunction(int event, int x, int y, int flags, void *user
             singleToneWindow->boxStartY = y;
         }
     }
+}
 
 void MainWindow::on_pushButton_clicked()
 {
